@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 启用动态方法的调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <!-- 国际化资源文件名称 -->  
+    <constant name="struts.custom.i18n.resources" value="global" />  
+    <!-- 是否自动加载国际化资源文件  -->  
+    <constant name="struts.i18n.reload" value="true" /> 
+    <!-- 编码格式 -->  
+    <constant name="struts.i18n.encoding" value="UTF-8" />  
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <!-- <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results> -->
+
+        <!-- <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings> -->
+        
+    </package>
+
+   
+   	<package name="usermanager" extends="default">
+   	
+   		 <action name="local" class="com.jack.struts.action.LocalAction">
+        	<result name="success">/jsp/login.jsp</result>
+        </action>
+   		
+   		<!-- 使用通配符配置action -->
+   		<action name="*User" class="com.jack.struts.action.UserAction" method="{1}">
+   			<!-- result如果指向一个action请求必须要添加type属性 -->
+   			<result name="showList" type="redirectAction">getAllUser</result>
+   			<result name="loginSuccess">/jsp/welcome.jsp</result>
+   			<result name="tologin" type="redirect">/jsp/login.jsp</result>
+   			<result name="input">/jsp/login.jsp</result>
+   		</action>
+   	</package>
+
+</struts>
+

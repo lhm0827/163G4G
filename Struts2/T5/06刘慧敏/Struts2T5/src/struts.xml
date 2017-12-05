@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+<package name="userManager"  extends="struts-default">
+	<action name="*User" class="com.jack.struts.action.UserAction"  method="{1}">
+			<result name="loginUser">index.jsp</result>
+    		<result name="queryAllUser">/jsp/queryAllUser.jsp</result>
+    		<result name="updateUser" type="redirectAction" >queryAllUser</result>
+    		<result name="querySingleUser">/jsp/updateUser.jsp</result>
+    		<result name="deleteUser" type="redirectAction" >queryAllUser</result>
+    		<result name="addUser" type="redirectAction">queryAllUser</result>
+    		<result name="error">/jsp/error.jsp</result>
+	</action>
+</package>
+</struts>
