@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 启用动态方法的调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.multipart.maxSize" value="53428800" />
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+
+   	<package name="fliemanager" extends="struts-default">
+   	
+   		 <action name="file" class="com.qhit.lh.g4.lhm.t7.action.FileAction">
+   		 	<interceptor-ref name="defaultStack">
+   		 		<param name="fileUpload.allowedExtensions">.text,.zip,.png,.jpg</param>
+   		 		<param name="fileUpload.maximumSize">52428800</param>
+   		 	</interceptor-ref>
+        	<result name="uploadSuccess">/jsp/allFile.jsp</result>
+        	<result name="input">/index.jsp</result>
+        </action>
+   		
+   	</package>
+
+</struts>
+
