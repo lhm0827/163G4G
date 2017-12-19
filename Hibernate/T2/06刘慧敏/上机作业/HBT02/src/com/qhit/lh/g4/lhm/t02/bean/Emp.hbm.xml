@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.g4.perfact.t02.bean.Emp" table="t_emp">
+		<id name="eid" column="eid" type="integer">
+			<generator class="native"/>
+		</id>
+		
+		<property name="empName" column="empName" type="string"></property>
+		<property name="empSex" column="empSex" type="string"></property>
+		<property name="brithday" column="brithday" type="string"></property>
+		<property name="deptid" column="deptid" type="integer"></property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.qhit.lh.g4.perfact.t02.bean.UserInfo" table="t_emp">
+		<id name="userId" column="userId" type="integer">
+			<generator class="foreign" />
+		</id>
+
+		<property name="username" column="username" type="string"></property>
+		<property name="userpwd" column="userpwd" type="string"></property>
+	</class>
+</hibernate-mapping>
